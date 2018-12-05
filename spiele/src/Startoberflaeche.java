@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import java.awt.Choice;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import src.KlickTheButton.KTBLogik;
 
 public class Startoberflaeche {
 
@@ -20,7 +21,7 @@ public class Startoberflaeche {
     
     Choice spielchoice = new Choice();
     spielchoice.add("Klick the Button");
-    spielchoice.add("Zeichenkreis");
+    //spielchoice.add("Zeichenkreis");
     spielchoice.setLocation(100,500);
     fenster.add(spielchoice);
     
@@ -30,17 +31,23 @@ public class Startoberflaeche {
     );
     welcome.setSize(800,300);
     welcome.setLocation(100,100);
+    welcome.setVisible(true);
     fenster.add(welcome);
 
     JButton enter = new JButton("<html><p style=\"font-family: Blackadder ITC; font-size: 30px\">Spielen</p>");
-    enter.setSize(100,50);
+    enter.setSize(100,100);
     enter.setLocation(100, 700);
     enter.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e){
         //TODO: starte das über spielchoice ausgewählte Spiel nach druck auf enter Button
+        String gewaehlt = spielchoice.getSelectedItem();
+        if(gewaehlt.equalsIgnoreCase("Klick the Button")){
+          KTBLogik ktbl = new KTBLogik();
+        }
       }
     });
     enter.setEnabled(true);
+    enter.setVisible(true);
     fenster.add(enter);
   }
 }
