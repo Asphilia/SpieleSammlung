@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import java.awt.Choice;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.BorderLayout;
+import java.awt.Container;
 import src.KlickTheButton.KTBLogik;
 
 public class Startoberflaeche {
@@ -13,17 +15,17 @@ public class Startoberflaeche {
   public Startoberflaeche(){
     JFrame fenster = new JFrame("Asphilias Spielesammlung");
     fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    fenster.setLayout(null);
-    fenster.setResizable(false);
-    fenster.setSize(1000,1000);
-    fenster.setLocation(10,50);
+    //fenster.setResizable(false);
+    fenster.setLocation(10,80);
     fenster.setVisible(true);
+    Container con = fenster.getContentPane();
+    con.setLayout(new BorderLayout());
     
     Choice spielchoice = new Choice();
     spielchoice.add("Klick the Button");
     //spielchoice.add("Zeichenkreis");
     spielchoice.setLocation(100,500);
-    fenster.add(spielchoice);
+    con.add(spielchoice, BorderLayout.CENTER);
     
     JLabel welcome = new JLabel();
     welcome.setText(
@@ -32,7 +34,7 @@ public class Startoberflaeche {
     welcome.setSize(800,300);
     welcome.setLocation(100,100);
     welcome.setVisible(true);
-    fenster.add(welcome);
+    con.add(welcome, BorderLayout.NORTH);
 
     JButton enter = new JButton("<html><p style=\"font-family: Blackadder ITC; font-size: 30px\">Spielen</p>");
     enter.setSize(100,100);
@@ -48,6 +50,7 @@ public class Startoberflaeche {
     });
     enter.setEnabled(true);
     enter.setVisible(true);
-    fenster.add(enter);
+    con.add(enter, BorderLayout.EAST);
+    fenster.pack();
   }
 }
