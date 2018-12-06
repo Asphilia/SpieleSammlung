@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import src.KlickTheButton.KTBLogik;
+import src.ZeichenKreis.ZKLogik;
 
 public class Startoberflaeche {
 
@@ -23,7 +24,7 @@ public class Startoberflaeche {
     
     Choice spielchoice = new Choice();
     spielchoice.add("Klick the Button");
-    //spielchoice.add("Zeichenkreis");
+    spielchoice.add("Zeichenkreis");
     spielchoice.setLocation(100,500);
     con.add(spielchoice, BorderLayout.CENTER);
     
@@ -45,6 +46,8 @@ public class Startoberflaeche {
         String gewaehlt = spielchoice.getSelectedItem();
         if(gewaehlt.equalsIgnoreCase("Klick the Button")){
           KTBLogik ktbl = new KTBLogik();
+        } else if(gewaehlt.equalsIgnoreCase("Zeichenkreis")){
+          ZKLogik zkl = new ZKLogik();
         }
       }
     });

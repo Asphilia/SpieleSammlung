@@ -34,7 +34,7 @@ public class JARBewegung implements KeyListener, MouseListener{
 
     }
     public void sprung(){
-        
+
     }
     public void ducken(){
 
