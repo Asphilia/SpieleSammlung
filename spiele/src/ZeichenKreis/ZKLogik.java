@@ -30,7 +30,7 @@ public class ZKLogik {
             System.exit(2);
         }
 
-        ZKOberflaeche zko = new ZKOberflaeche(liste);
+        ZKOberflaeche zko = new ZKOberflaeche(liste, this);
        // zko.kreisErstellen(liste);
     }
 

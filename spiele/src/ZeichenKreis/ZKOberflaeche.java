@@ -9,8 +9,11 @@ public class ZKOberflaeche {
     private JFrame fenster;
     private JButton[] kreis;
     private JLabel header;
+    public String wort = "";
+    public ZKLogik zklogik;
 
-    public ZKOberflaeche(ArrayList<Character> chars){
+    public ZKOberflaeche(ArrayList<Character> chars, ZKLogik zklo){
+        zklogik = zklo;
         fenster = new JFrame("Asphilias Zeichenkreis");
         fenster.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         fenster.setLayout(null);
@@ -31,16 +34,16 @@ public class ZKOberflaeche {
         int groesse = chars.size();
         kreis = new JButton[groesse];
         ArrayList<Character> liste = mischeListe(chars);
-
+        ZKListener zkl = new ZKListener(this);
         for(int i = 0; i<groesse; i++){
             kreis[i] = new JButton();
             kreis[i].setText(""+liste.get(i).charValue());
             kreis[i].setSize(50,50);
-            int x = (int) (Math.sin(2*Math.PI/groesse*i)*900+450);
-            int y = (int) (Math.cos(2*Math.PI/groesse*i)*900+400);
+            int x = (int) (Math.sin(2*Math.PI/groesse*i)*400+450);
+            int y = (int) (Math.cos(2*Math.PI/groesse*i)*400+450);
             kreis[i].setLocation(x,y);
             kreis[i].setEnabled(true);
-            //kreis[i].addActionListener(zkl);
+            kreis[i].addActionListener(zkl);
             fenster.add(kreis[i]);
         }
         fenster.setVisible(true);
@@ -60,5 +63,9 @@ public class ZKOberflaeche {
         }
 
         return liste;
+    }
+
+    public void beenden(){
+        System.out.println(wort);
     }
 }
