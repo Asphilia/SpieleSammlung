@@ -22,7 +22,7 @@ public class KTBLogik implements MouseListener, ActionListener{
 
     public void mouseEntered(MouseEvent e){
         int x = (int) (Math.random()*900);
-        int y = (int) (Math.random()*900+50);
+        int y = (int) (Math.random()*850+50);
         ktbo.button.setLocation(x, y);
     }
 
